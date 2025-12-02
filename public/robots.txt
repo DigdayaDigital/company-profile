@@ -1,0 +1,10 @@
+# Allow all crawlers
+User-agent: *
+Allow: /
+
+# Disallow admin areas (jika ada)
+Disallow: /admin/
+Disallow: /api/
+
+# Sitemap location
+Sitemap: https://www.digdayadigital.com/sitemap.xml
