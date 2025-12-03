@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { toast } from "sonner";
 import { MotionButton } from '@/components/motion/MotionComponents';
+import { Spinner } from '../ui/spinner';
 
 interface ContactFormProps {
   onSubmitSuccess?: () => void;
@@ -15,9 +16,11 @@ export function ContactForm({ onSubmitSuccess }: ContactFormProps) {
     phone: '',
     message: '',
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setIsSubmitting(true);
     
     try {
       const response = await fetch('/api/send', {
@@ -42,6 +45,8 @@ export function ContactForm({ onSubmitSuccess }: ContactFormProps) {
       }
     } catch (error) {
       toast.error("Terjadi kesalahan saat mengirim pesan.");
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -123,9 +128,11 @@ export function ContactForm({ onSubmitSuccess }: ContactFormProps) {
           type="submit"
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
-          className="w-full bg-linear-to-r from-[#ff5100] to-[#ff7733] text-white py-4 px-8 rounded-3xl text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
+          className={`w-full bg-linear-to-r from-[#ff5100] to-[#ff7733] text-white py-4 px-8 rounded-3xl text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300 ${isSubmitting ? 'opacity-50 cursor-not-allowed flex items-center justify-center gap-x-2' : ''}`}
+          disabled={isSubmitting}
         >
-          Kirim Pesan
+          {isSubmitting && <Spinner className="size-5" />}
+          {isSubmitting ? 'Mengirim...' : 'Kirim Pesan'}
         </MotionButton>
       </div>
     </form>
