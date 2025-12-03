@@ -70,19 +70,20 @@ export function Header() {
             </a>
           ))}
           <div className="flex w-full flex-col gap-4">
-            <NavbarButton
+            {/* <NavbarButton
               onClick={() => setIsMobileMenuOpen(false)}
               variant="primary"
               className="w-full"
             >
               Login
-            </NavbarButton>
+            </NavbarButton> */}
             <NavbarButton
               onClick={() => setIsMobileMenuOpen(false)}
               variant="primary"
               className="w-full"
+              href='#kontak'
             >
-              Book a call
+              Hubungi Kami
             </NavbarButton>
           </div>
         </MobileNavMenu>
