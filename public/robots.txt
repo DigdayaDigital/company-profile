@@ -1,6 +1,4 @@
-user-agent: *
-allow: /
-disallow: /admin/
-disallow: /api/
+Disallow: /admin/
+Disallow: /api/
 
 sitemap: https://www.digdayadigital.com/sitemap.xml
