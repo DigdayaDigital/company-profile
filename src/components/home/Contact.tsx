@@ -5,6 +5,7 @@ import { IconMail, IconPhone, IconMapPin, IconBrandWhatsapp, IconBrandInstagram,
 import { useState } from 'react';
 import { Facebook, Instagram, Linkedin } from 'lucide-react';
 import { toast } from "sonner"
+import { useReducedMotion } from '@/hooks/useReducedMotion';
 
 const contactInfo = [
   {
@@ -34,6 +35,7 @@ const socialLinks = [
 ];
 
 export function Contact() {
+  const shouldReduceMotion = useReducedMotion();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -108,10 +110,10 @@ export function Contact() {
 
       <div className="container mx-auto relative z-10">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={shouldReduceMotion ? {} : { opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          transition={shouldReduceMotion ? { duration: 0 } : { duration: 0.6 }}
           className="text-center mb-16"
         >
           <h2 className="text-5xl md:text-6xl text-gray-800 mb-4">Hubungi Kami</h2>
@@ -121,10 +123,10 @@ export function Contact() {
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Contact Information */}
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
+            initial={shouldReduceMotion ? {} : { opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            transition={shouldReduceMotion ? { duration: 0 } : { duration: 0.6 }}
             className="space-y-8"
           >
             <div>
@@ -139,10 +141,10 @@ export function Contact() {
               {contactInfo.map((info, index) => (
                 <motion.div
                   key={info.title}
-                  initial={{ opacity: 0, y: 20 }}
+                  initial={shouldReduceMotion ? {} : { opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  transition={shouldReduceMotion ? { duration: 0 } : { duration: 0.5, delay: index * 0.1 }}
                   whileHover={{ x: 10, scale: 1.02 }}
                   className="group"
                 >
@@ -175,10 +177,10 @@ export function Contact() {
 
             {/* Social Media */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={shouldReduceMotion ? {} : { opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.3 }}
+              transition={shouldReduceMotion ? { duration: 0 } : { duration: 0.6, delay: 0.3 }}
             >
               <h4 className="text-xl text-gray-800 mb-4">Ikuti Kami</h4>
               <div className="flex gap-4 text-[#ff5100]">
@@ -199,10 +201,10 @@ export function Contact() {
 
           {/* Contact Form */}
           <motion.div
-            initial={{ opacity: 0, x: 50 }}
+            initial={shouldReduceMotion ? {} : { opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            transition={shouldReduceMotion ? { duration: 0 } : { duration: 0.6 }}
           >
             <form onSubmit={handleSubmit} className="bg-white p-8 rounded-[2.5rem] shadow-xl border border-gray-100">
               <div className="space-y-6">

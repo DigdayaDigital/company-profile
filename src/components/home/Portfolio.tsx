@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { ImageWithFallback } from '../figma/ImageWithFallback';
+import { useReducedMotion } from '@/hooks/useReducedMotion';
 
 const projects = [
   {
@@ -39,6 +40,7 @@ const projects = [
 ];
 
 export function Portfolio() {
+  const shouldReduceMotion = useReducedMotion();
   const [currentIndex, setCurrentIndex] = useState(0);
   const itemsPerView = 3;
 
@@ -65,10 +67,10 @@ export function Portfolio() {
     <section id="portofolio" className="py-24 px-6 bg-linear-to-br from-orange-50 to-white relative overflow-hidden">
       <div className="container mx-auto">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={shouldReduceMotion ? {} : { opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          transition={shouldReduceMotion ? { duration: 0 } : { duration: 0.6 }}
           className="text-center mb-16"
         >
           <h2 className="text-5xl md:text-6xl text-gray-800 mb-4">Portofolio</h2>
@@ -81,21 +83,21 @@ export function Portfolio() {
             <motion.div 
               className="flex gap-8"
               animate={{ x: 0 }}
-              transition={{ duration: 0.5 }}
+              transition={shouldReduceMotion ? { duration: 0 } : { duration: 0.5 }}
             >
               <AnimatePresence mode="popLayout">
                 {visibleProjects.map((project, index) => (
                   <motion.div
                     key={`${currentIndex}-${index}`}
-                    initial={{ opacity: 0, scale: 0.8, x: 100 }}
+                    initial={shouldReduceMotion ? {} : { opacity: 0, scale: 0.8, x: 100 }}
                     animate={{ opacity: 1, scale: 1, x: 0 }}
                     exit={{ opacity: 0, scale: 0.8, x: -100 }}
-                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                    transition={shouldReduceMotion ? { duration: 0 } : { duration: 0.5, delay: index * 0.1 }}
                     className="shrink-0 w-full md:w-[calc(33.333%-1.5rem)]"
                   >
                     <motion.div
                       whileHover={{ y: -15, rotateY: 5 }}
-                      transition={{ duration: 0.3 }}
+                      transition={shouldReduceMotion ? { duration: 0 } : { duration: 0.3 }}
                       className="relative group"
                       style={{ perspective: '1000px' }}
                     >

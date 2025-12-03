@@ -3,8 +3,11 @@
 import { motion } from 'motion/react';
 import { FloatingShape } from './FloatingShape';
 import Spline from '@splinetool/react-spline';
+import { useReducedMotion } from '@/hooks/useReducedMotion';
 
 export function Hero() {
+  const shouldReduceMotion = useReducedMotion();
+
   return (
     <section className="relative min-h-dvh flex items-center justify-center overflow-hidden">
       <div className="absolute inset-0 overflow-hidden">
@@ -43,9 +46,9 @@ export function Hero() {
         <div className='flex flex-col-reverse lg:flex-row items-center lg:items-center'>
           <div className="text-center lg:text-left w-full lg:w-1/2 mb-12">
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
+              initial={shouldReduceMotion ? {} : { opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
+              transition={shouldReduceMotion ? { duration: 0 } : { duration: 0.8 }}
               className="mb-8"
             >
               <h1 className="text-5xl md:text-7xl lg:text-8xl mb-6">
@@ -56,18 +59,18 @@ export function Hero() {
             </motion.div>
 
             <motion.p
-              initial={{ opacity: 0, y: 30 }}
+              initial={shouldReduceMotion ? {} : { opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
+              transition={shouldReduceMotion ? { duration: 0 } : { duration: 0.8, delay: 0.2 }}
               className="text-lg md:text-xl text-gray-600 mb-12 max-w-3xl mx-auto leading-relaxed"
             >
               Kami menggabungkan kreativitas dan teknologi untuk menciptakan transformasi digital yang inovatif untuk bisnis Anda.
             </motion.p>
 
             <motion.button
-              initial={{ opacity: 0, scale: 0.8 }}
+              initial={shouldReduceMotion ? {} : { opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5, delay: 0.4 }}
+              transition={shouldReduceMotion ? { duration: 0 } : { duration: 0.5, delay: 0 }}
               whileHover={{ scale: 1.05, y: -5 }}
               whileTap={{ scale: 0.95 }}
               className="bg-linear-to-r from-[#ff5100] to-[#ff7733] text-white px-12 py-5 rounded-full shadow-2xl hover:shadow-orange-500/50 transition-all duration-300"

@@ -2,6 +2,7 @@
 
 import { motion } from 'motion/react';
 import { Settings, Palette, Cloud } from 'lucide-react';
+import { useReducedMotion } from '@/hooks/useReducedMotion';
 
 const services = [
   {
@@ -25,14 +26,16 @@ const services = [
 ];
 
 export function Services() {
+  const shouldReduceMotion = useReducedMotion();
+
   return (
     <section id="layanan" className="py-24 px-6 relative overflow-hidden">
       <div className="container mx-auto">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={shouldReduceMotion ? {} : { opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          transition={shouldReduceMotion ? { duration: 0 } : { duration: 0.6 }}
           className="text-center mb-16"
         >
           <h2 className="text-5xl md:text-6xl text-gray-800 mb-4">Layanan Kami</h2>
@@ -43,10 +46,10 @@ export function Services() {
           {services.map((service, index) => (
             <motion.div
               key={service.title}
-              initial={{ opacity: 0, y: 50 }}
+              initial={shouldReduceMotion ? {} : { opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.2 }}
+              transition={shouldReduceMotion ? { duration: 0 } : { duration: 0.6, delay: index * 0.2 }}
               whileHover={{ y: -10, scale: 1.02 }}
               className="group"
             >
@@ -60,7 +63,7 @@ export function Services() {
                 <motion.div
                   className="w-20 h-20 bg-linear-to-br from-[#ff5100] to-[#ff7733] rounded-[30px] flex items-center justify-center mb-6 shadow-lg"
                   whileHover={{ rotate: [0, -10, 10, -10, 0], scale: 1.1 }}
-                  transition={{ duration: 0.5 }}
+                  transition={shouldReduceMotion ? { duration: 0 } : { duration: 0.5 }}
                   style={{
                     boxShadow: '0 15px 30px rgba(255, 81, 0, 0.3)',
                   }}
