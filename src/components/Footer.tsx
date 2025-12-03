@@ -1,12 +1,8 @@
-"use client";
-
-import { motion } from 'motion/react';
 import { Mail, Phone, MapPin, Facebook, Instagram, Linkedin } from 'lucide-react';
 import Image from 'next/image';
-import { useReducedMotion } from '@/hooks/useReducedMotion';
+import { MotionDiv, MotionA } from '@/components/motion/MotionComponents';
 
 export function Footer() {
-  const shouldReduceMotion = useReducedMotion();
   const socialLinks = [
     { icon: Facebook, href: 'https://www.facebook.com/people/Digdaya-Digital/61584618411682/' },
     { icon: Instagram, href: 'https://www.instagram.com/digdayadigital/' },
@@ -20,8 +16,8 @@ export function Footer() {
         <div className="container mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-12 max-w-7xl mx-auto">
             {/* Logo and Description */}
-            <motion.div
-              initial={shouldReduceMotion ? {} : { opacity: 0, y: 20 }}
+            <MotionDiv
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               className="md:col-span-2"
@@ -38,7 +34,7 @@ export function Footer() {
               </p>
               <div className="flex gap-4">
                 {socialLinks.map((social, index) => (
-                  <motion.a
+                  <MotionA
                     key={index}
                     href={social.href}
                     whileHover={{ scale: 1.2, y: -5 }}
@@ -46,17 +42,17 @@ export function Footer() {
                     className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-[18px] flex items-center justify-center hover:bg-white/30 transition-colors shadow-lg"
                   >
                     <social.icon className="w-5 h-5" />
-                  </motion.a>
+                  </MotionA>
                 ))}
               </div>
-            </motion.div>
+            </MotionDiv>
 
             {/* Quick Links */}
-            <motion.div
-              initial={shouldReduceMotion ? {} : { opacity: 0, y: 20 }}
+            <MotionDiv
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={shouldReduceMotion ? { duration: 0 } : { delay: 0.1 }}
+              transition={{ delay: 0.1 }}
             >
               <h3 className="text-xl mb-6">Quick Links</h3>
               <ul className="space-y-3">
@@ -70,14 +66,14 @@ export function Footer() {
                   </li>
                 ))}
               </ul>
-            </motion.div>
+            </MotionDiv>
 
             {/* Contact Info */}
-            <motion.div
-              initial={shouldReduceMotion ? {} : { opacity: 0, y: 20 }}
+            <MotionDiv
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={shouldReduceMotion ? { duration: 0 } : { delay: 0.2 }}
+              transition={{ delay: 0.2 }}
             >
               <h3 className="text-xl mb-6">Kontak</h3>
               <ul className="space-y-4">
@@ -94,19 +90,19 @@ export function Footer() {
                   <span className="text-white/80">info@digdayadigital.com</span>
                 </li>
               </ul>
-            </motion.div>
+            </MotionDiv>
           </div>
 
           {/* Bottom Bar */}
-          <motion.div
-            initial={shouldReduceMotion ? {} : { opacity: 0 }}
+          <MotionDiv
+            initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            transition={shouldReduceMotion ? { duration: 0 } : { delay: 0.3 }}
+            transition={{ delay: 0.3 }}
             className="mt-12 pt-8 border-t border-white/20 text-center text-white/80"
           >
             <p>&copy; 2025 Digdaya Digital. All rights reserved.</p>
-          </motion.div>
+          </MotionDiv>
         </div>
 
         {/* Decorative shapes */}

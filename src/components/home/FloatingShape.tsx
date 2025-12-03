@@ -1,4 +1,4 @@
-import { motion } from 'motion/react';
+import { MotionDiv } from '@/components/motion/MotionComponents';
 
 interface FloatingShapeProps {
   color: string;
@@ -10,7 +10,7 @@ interface FloatingShapeProps {
 
 export function FloatingShape({ color, size, position, delay, duration }: FloatingShapeProps) {
   return (
-    <motion.div
+    <MotionDiv
       className={`absolute ${position} ${size} bg-linear-to-br ${color} rounded-[60px] blur-2xl opacity-60`}
       animate={{
         y: [0, -30, 0],
