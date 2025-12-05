@@ -31,6 +31,10 @@ export function Header() {
       name: "Berita",
       link: "#",
     },
+    {
+      name: "FAQ",
+      link: "#faq",
+    }
   ];
  
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);

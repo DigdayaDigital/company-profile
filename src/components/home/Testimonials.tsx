@@ -83,7 +83,7 @@ export function Testimonials() {
                 {/* Author */}
                 <div className="border-t border-gray-200 pt-4">
                   <p className="text-gray-800 mb-1">{testimonial.name}</p>
-                  <p className="text-sm text-gray-500">{testimonial.role}</p>
+                  {/* <p className="text-sm text-gray-500">{testimonial.role}</p> */}
                 </div>
 
                 {/* Decorative blob */}

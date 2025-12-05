@@ -74,7 +74,7 @@ export function Hero() {
                 boxShadow: '0 20px 60px rgba(255, 81, 0, 0.4)',
               }}
             >
-              <a href='https://wa.me/6285712353595?text=Halo%2C%20saya%20tertarik%20dengan%20layanan%20Anda.' className="text-xl">Mulai Sekarang</a>
+              <a href='https://wa.me/6285712353595?text=Halo%2C%20saya%20tertarik%20dengan%20layanan%20Anda.' className="text-xl">Konsultasi Gratis</a>
             </MotionButton>
           </div>
           <div className='relative w-full lg:w-1/2 h-[400px] lg:h-[600px]'>

@@ -56,7 +56,7 @@ export function Footer() {
             >
               <h3 className="text-xl mb-6">Quick Links</h3>
               <ul className="space-y-3">
-                {['Tentang Kami', 'Layanan', 'Portofolio', 'Berita', 'Kontak'].map((link) => (
+                {['Tentang Kami', 'Layanan', 'Portofolio', 'Berita', 'Kontak', 'FAQ'].map((link) => (
                   <li key={link}>
                     <a 
                       href={`#${link.toLowerCase().replace(' ', '-')}`} 

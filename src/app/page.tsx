@@ -1,5 +1,6 @@
 import { Clients } from "@/components/home/Clients";
 import { Contact } from "@/components/home/Contact";
+import { FrequentlyAskedQuestions } from "@/components/home/FrequentlyAskedQuestions";
 import { Hero } from "@/components/home/Hero";
 import { Portfolio } from "@/components/home/Portfolio";
 import { Services } from "@/components/home/Services";
@@ -83,6 +84,7 @@ export default function Home() {
         <Portfolio />
         {/* <Clients /> */}
         <Testimonials />
+        <FrequentlyAskedQuestions />
         <Contact />
       </main>
     </>

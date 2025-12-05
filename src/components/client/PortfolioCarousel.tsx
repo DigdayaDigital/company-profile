@@ -65,7 +65,7 @@ export function PortfolioCarousel() {
   return (
     <div className="max-w-7xl mx-auto relative">
       {/* Carousel Container */}
-      <div className="overflow-hidden">
+      <div className="overflow-hidden py-4 px-1.5">
         <MotionDiv 
           className="flex gap-8"
           animate={{ x: 0 }}
@@ -87,7 +87,7 @@ export function PortfolioCarousel() {
                   className="relative group"
                   style={{ perspective: '1000px' }}
                 >
-                  <div className="bg-white rounded-[40px] overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300">
+                  <div className="bg-white rounded-[40px] overflow-hidden shadow-md hover:shadow-xl transition-all duration-300">
                     <div className="relative h-64 overflow-hidden">
                       <ImageWithFallback
                         src={`https://placehold.co/600x400?text=${encodeURIComponent(project.image)}`}
