@@ -5,6 +5,7 @@ import { Hero } from "@/components/home/Hero";
 import { Portfolio } from "@/components/home/Portfolio";
 import { Services } from "@/components/home/Services";
 import { Testimonials } from "@/components/home/Testimonials";
+import { News } from "@/components/home/News";
 
 export default function Home() {
   const jsonLd = {
@@ -84,6 +85,7 @@ export default function Home() {
         <Portfolio />
         {/* <Clients /> */}
         <Testimonials />
+        <News />
         <FrequentlyAskedQuestions />
         <Contact />
       </main>

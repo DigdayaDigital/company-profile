@@ -9,6 +9,29 @@ export function Footer() {
     { icon: Linkedin, href: 'https://www.linkedin.com/company/digdaya-digital/' },
   ];
 
+  const quickLinks = [
+    {
+      name: "Tentang Kami",
+      link: "/#tentang-kami",
+    },
+    {
+      name: "Layanan",
+      link: "/#layanan",
+    },
+    {
+      name: "Portofolio",
+      link: "/#portofolio",
+    },
+    {
+      name: "Berita",
+      link: "/berita",
+    },
+    {
+      name: "FAQ",
+      link: "/#faq",
+    }
+  ];
+
   return (
     <footer className="relative overflow-hidden">
       {/* Main Footer */}
@@ -56,12 +79,12 @@ export function Footer() {
             >
               <h3 className="text-xl mb-6">Quick Links</h3>
               <ul className="space-y-3">
-                {['Tentang Kami', 'Layanan', 'Portofolio', 'Berita', 'Kontak', 'FAQ'].map((link) => (
-                  <li key={link}>
+                {quickLinks.map((link) => (
+                  <li key={link.name}>
                     <a 
-                      href={`#${link.toLowerCase().replace(' ', '-')}`} 
+                      href={link.link} 
                       className="text-white/80 hover:text-white transition-colors">
-                      {link}
+                      {link.name}
                     </a>
                   </li>
                 ))}

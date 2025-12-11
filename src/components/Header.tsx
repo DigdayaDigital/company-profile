@@ -17,23 +17,23 @@ export function Header() {
   const navItems = [
     {
       name: "Tentang Kami",
-      link: "#tentang-kami",
+      link: "/#tentang-kami",
     },
     {
       name: "Layanan",
-      link: "#layanan",
+      link: "/#layanan",
     },
     {
       name: "Portofolio",
-      link: "#portofolio",
+      link: "/#portofolio",
     },
     {
       name: "Berita",
-      link: "#",
+      link: "/berita",
     },
     {
       name: "FAQ",
-      link: "#faq",
+      link: "/#faq",
     }
   ];
  
