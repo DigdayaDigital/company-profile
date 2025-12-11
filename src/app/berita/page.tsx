@@ -3,6 +3,7 @@ import { Calendar, Clock, ArrowRight, Home, ChevronRight, TrendingUp } from 'luc
 import Link from 'next/link';
 import { FloatingShape } from '@/components/home/FloatingShape';
 import { newsData } from '@/lib/newsData';
+import { formatDate } from '@/lib/dateUtils';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -206,7 +207,7 @@ export default function Berita() {
                             <div className="flex items-center gap-4">
                               <div className="flex items-center gap-1">
                                 <Calendar className="w-4 h-4" />
-                                <span>{news.date}</span>
+                                <span>{formatDate(news.date)}</span>
                               </div>
                               <div className="flex items-center gap-1">
                                 <Clock className="w-4 h-4" />
@@ -281,7 +282,7 @@ export default function Berita() {
                         <div className="flex items-center gap-4">
                           <div className="flex items-center gap-1">
                             <Calendar className="w-4 h-4" />
-                            <span>{news.date}</span>
+                            <span>{formatDate(news.date)}</span>
                           </div>
                           <div className="flex items-center gap-1">
                             <Clock className="w-4 h-4" />

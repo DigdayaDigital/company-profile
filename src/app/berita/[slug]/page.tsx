@@ -3,6 +3,7 @@ import { Calendar, Clock, Home, ChevronRight, User, Tag, Share2, Facebook, Twitt
 import Link from 'next/link';
 import { FloatingShape } from '@/components/home/FloatingShape';
 import { newsData } from '@/lib/newsData';
+import { formatDate } from '@/lib/dateUtils';
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 
@@ -219,7 +220,7 @@ export default async function BeritaShow({ params }: { params: Promise<{ slug: s
             <div className="flex flex-wrap items-center gap-6 text-gray-600 mb-8">
               <div className="flex items-center gap-2">
                 <Calendar className="w-5 h-5" />
-                <time dateTime={article.date} itemProp="datePublished">{article.date}</time>
+                <time dateTime={article.date} itemProp="datePublished">{formatDate(article.date)}</time>
               </div>
               <div className="flex items-center gap-2">
                 <Clock className="w-5 h-5" />
