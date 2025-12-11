@@ -15,8 +15,8 @@ export default function Home() {
     "alternateName": "PT Digdaya Digital Indonesia",
     "url": "https://www.digdayadigital.com",
     "logo": "https://www.digdayadigital.com/images/logo.png",
-    "description": "Software house dan startup digital yang mengubah ide bisnis menjadi aplikasi, website, dan sistem powerful. Turning lines of code into business growth.",
-    "slogan": "Turning Lines of Code into Business Growth",
+    "description": "Partner digital terpercaya yang siap membantu mengubah ide bisnis Anda menjadi aplikasi dan website yang powerful. Ayo wujudkan bisnis impian Anda bersama kami!",
+    "slogan": "Wujudkan Bisnis Digital Impian Anda Bersama Kami",
     "foundingDate": "2025",
     "address": {
       "@type": "PostalAddress",

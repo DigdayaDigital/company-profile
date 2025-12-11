@@ -17,10 +17,10 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "Digdaya Digital - Turning Lines of Code into Business Growth",
+    default: "Digdaya Digital - Wujudkan Ide Bisnismu Jadi Aplikasi Keren!",
     template: "%s | Digdaya Digital"
   },
-  description: "Software house dan startup digital yang mengubah ide bisnis menjadi aplikasi, website, dan sistem powerful. Solusi teknologi untuk pertumbuhan bisnis Anda di Cilacap, Jawa Tengah.",
+  description: "Kami bantu bisnis kamu tumbuh dengan teknologi yang powerful! Dari ide sampai jadi aplikasi siap pakai. Software house terpercaya di Cilacap yang siap jadi partner digital kamu.",
   keywords: [
     "software house",
     "software house cilacap",
@@ -28,9 +28,9 @@ export const metadata: Metadata = {
     "jasa pembuatan aplikasi",
     "digital agency indonesia",
     "software development",
-    "UI/UX design",
-    "cloud solutions",
-    "startup technology",
+    "desain UI/UX",
+    "solusi cloud",
+    "teknologi startup",
     "custom software cilacap",
     "web development cilacap",
     "mobile app development",
@@ -49,16 +49,16 @@ export const metadata: Metadata = {
     canonical: '/',
   },
   openGraph: {
-    title: "Digdaya Digital - Turning Lines of Code into Business Growth",
-    description: "Software house yang membantu bisnis Anda bertumbuh dengan solusi teknologi yang powerful dan mudah digunakan. Dari ide hingga aplikasi siap pakai.",
+    title: "Digdaya Digital - Wujudkan Ide Bisnismu Jadi Aplikasi Keren!",
+    description: "Yuk, kembangkan bisnis kamu bareng kami! Software house yang siap bantu dari ide sampai aplikasi jadi. Teknologi yang gampang dipahami, hasil yang bikin bangga.",
     url: 'https://www.digdayadigital.com',
     siteName: 'Digdaya Digital',
     images: [
       {
-        url: '/images/logo.png', // Buat gambar OG 1200x630px
+        url: '/images/logo.png',
         width: 2000,
         height: 2000,
-        alt: 'Digdaya Digital - Software House & Digital Solutions',
+        alt: 'Digdaya Digital - Partner Teknologi Bisnis Kamu',
       }
     ],
     locale: 'id_ID',
