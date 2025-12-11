@@ -7,7 +7,7 @@ export function News() {
   const featuredArticles = newsData.filter(article => article.featured).slice(0, 3);
 
   return (
-    <section className="py-24 px-6 bg-gradient-to-br from-gray-50 to-white relative overflow-hidden">
+    <section className="py-24 px-6 bg-linear-to-br from-gray-50 to-white relative overflow-hidden">
       <div className="container mx-auto max-w-7xl">
         <MotionDiv
           initial={{ opacity: 0, y: 30 }}
@@ -38,15 +38,15 @@ export function News() {
               <Link href={`/berita/${article.slug}`}>
                 <article className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 h-full flex flex-col">
                   {/* Image */}
-                  <div className="relative h-56 bg-gradient-to-br from-orange-100 to-orange-50 overflow-hidden">
-                    <div className="absolute inset-0 bg-gradient-to-br from-[#ff5100]/20 to-[#ff7733]/10 group-hover:from-[#ff5100]/30 group-hover:to-[#ff7733]/20 transition-all duration-300" />
+                  <div className="relative h-56 bg-linear-to-br from-orange-100 to-orange-50 overflow-hidden">
+                    <div className="absolute inset-0 bg-linear-to-br from-[#ff5100]/20 to-[#ff7733]/10 group-hover:from-[#ff5100]/30 group-hover:to-[#ff7733]/20 transition-all duration-300" />
                     <div className="absolute inset-0 flex items-center justify-center">
                       <div className="text-gray-400 text-6xl">📰</div>
                     </div>
                   </div>
 
                   {/* Content */}
-                  <div className="p-6 flex flex-col flex-grow">
+                  <div className="p-6 flex flex-col grow">
                     {/* Category */}
                     <span className="inline-block px-3 py-1 bg-orange-100 text-[#ff5100] text-sm font-medium rounded-full w-fit mb-3">
                       {article.category}
@@ -58,7 +58,7 @@ export function News() {
                     </h3>
 
                     {/* Excerpt */}
-                    <p className="text-gray-600 mb-4 line-clamp-3 flex-grow">
+                    <p className="text-gray-600 mb-4 line-clamp-3 grow">
                       {article.excerpt}
                     </p>
 
@@ -93,7 +93,7 @@ export function News() {
         >
           <Link
             href="/berita"
-            className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-[#ff5100] to-[#ff7733] text-white font-semibold rounded-full hover:shadow-xl hover:scale-105 transition-all duration-300"
+            className="inline-flex items-center gap-2 px-8 py-4 bg-linear-to-r from-[#ff5100] to-[#ff7733] text-white font-semibold rounded-full hover:shadow-xl hover:scale-105 transition-all duration-300"
           >
             <span>Lihat Semua Artikel</span>
             <ArrowRight className="w-5 h-5" />

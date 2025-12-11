@@ -8,35 +8,35 @@ import { MotionDiv, MotionButton } from '@/components/motion/MotionComponents';
 
 const projects = [
   {
-    title: 'E-Commerce Platform',
+    title: 'TOYOTA Quality Control System',
     category: 'Web Development',
-    image: 'ecommerce website modern',
+    image: '/images/portfolio/porto-1.png',
   },
   {
-    title: 'Mobile Banking App',
-    category: 'Mobile Development',
-    image: 'mobile banking app interface',
-  },
-  {
-    title: 'Corporate Dashboard',
-    category: 'UI/UX Design',
-    image: 'dashboard analytics interface',
-  },
-  {
-    title: 'Cloud Storage Solution',
-    category: 'Cloud Services',
-    image: 'cloud storage technology',
-  },
-  {
-    title: 'Social Media Platform',
+    title: 'SPARK E-Ticketing & E-Commerce Platform',
     category: 'Web Development',
-    image: 'social media app interface',
+    image: '/images/portfolio/porto-2.png',
   },
   {
-    title: 'E-Learning Portal',
-    category: 'Education Tech',
-    image: 'online learning platform',
+    title: 'MUF Future',
+    category: 'Web Development',
+    image: '/images/portfolio/porto-3.png',
   },
+  {
+    title: 'SIIAP E-Inventory & E-Commerce Management',
+    category: 'Web Development',
+    image: '/images/portfolio/porto-4.png',
+  },
+  {
+    title: 'BSI OTO',
+    category: 'Web Development',
+    image: '/images/portfolio/porto-5.png',
+  },
+  // {
+  //   title: 'E-Learning Portal',
+  //   category: 'Education Tech',
+  //   image: 'online learning platform',
+  // },
 ];
 
 export function PortfolioCarousel() {
@@ -87,10 +87,10 @@ export function PortfolioCarousel() {
                   className="relative group"
                   style={{ perspective: '1000px' }}
                 >
-                  <div className="bg-white rounded-[40px] overflow-hidden shadow-md hover:shadow-xl transition-all duration-300">
+                  <div className="bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300">
                     <div className="relative h-64 overflow-hidden">
                       <ImageWithFallback
-                        src={`https://placehold.co/600x400?text=${encodeURIComponent(project.image)}`}
+                        src={project.image}
                         alt={project.title}
                         className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                       />
