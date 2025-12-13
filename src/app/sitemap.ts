@@ -15,7 +15,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       },
     });
     newsUrls = response.data.data.map((article: any) => ({
-      url: `${baseUrl}/berita/${article.slug}`,
+      url: `${baseUrl}/artikel/${article.slug}`,
       lastModified: new Date(article.updated_at || article.created_at),
       changeFrequency: 'monthly' as const,
       priority: article.featured ? 0.9 : 0.7,
@@ -32,7 +32,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 1,
     },
     {
-      url: `${baseUrl}/berita`,
+      url: `${baseUrl}/artikel`,
       lastModified: new Date(),
       changeFrequency: 'weekly',
       priority: 0.9,
