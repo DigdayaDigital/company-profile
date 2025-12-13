@@ -215,7 +215,7 @@ export function NewsDetailContent({ slug }: NewsDetailContentProps) {
             </span>
 
             {/* Title */}
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-800 mb-6 leading-tight">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-800 mb-6 leading-tight font-inter">
               {article.title}
             </h1>
 
