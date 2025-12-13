@@ -23,8 +23,8 @@ export function Footer() {
       link: "/#portofolio",
     },
     {
-      name: "Berita",
-      link: "/berita",
+      name: "Artikel",
+      link: "/artikel",
     },
     {
       name: "FAQ",

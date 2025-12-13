@@ -22,7 +22,7 @@ export function News() {
         >
           <div className="flex items-center justify-center gap-3 mb-4">
             <Newspaper className="w-8 h-8 text-[#ff5100]" />
-            <h2 className="text-5xl md:text-6xl text-gray-800">Berita & Artikel</h2>
+            <h2 className="text-5xl md:text-6xl text-gray-800">Artikel</h2>
           </div>
           <p className="text-xl text-gray-600">
             Informasi terbaru seputar teknologi dan inovasi digital
@@ -62,7 +62,7 @@ export function News() {
         ) : isError || !data ? (
           <div className="flex items-center justify-center min-h-[400px]">
             <div className="text-center">
-              <p className="text-xl text-gray-600 mb-4">Gagal memuat berita</p>
+              <p className="text-xl text-gray-600 mb-4">Gagal memuat artikel</p>
               <p className="text-gray-500">Silakan coba lagi nanti</p>
             </div>
           </div>
@@ -78,7 +78,7 @@ export function News() {
               transition={{ duration: 0.6, delay: index * 0.2 }}
               className="group"
             >
-              <Link href={`/berita/${article.slug}`}>
+              <Link href={`/artikel/${article.slug}`}>
                 <article className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 h-full flex flex-col">
                   {/* Image */}
                   <div className="relative h-56 bg-linear-to-br from-orange-100 to-orange-50 overflow-hidden">
@@ -143,7 +143,7 @@ export function News() {
           className="text-center"
         >
           <Link
-            href="/berita"
+            href="/artikel"
             className="inline-flex items-center gap-2 px-8 py-4 bg-linear-to-r from-[#ff5100] to-[#ff7733] text-white font-semibold rounded-full hover:shadow-xl hover:scale-105 transition-all duration-300"
           >
             <span>Lihat Semua Artikel</span>

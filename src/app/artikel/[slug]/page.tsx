@@ -10,12 +10,12 @@ export async function generateMetadata(
     title: `Artikel | Digdaya Digital`,
     description: 'Baca artikel terbaru dari Digdaya Digital',
     alternates: {
-      canonical: `https://www.digdayadigital.com/berita/-Line{slug}`,
+      canonical: `https://www.digdayadigital.com/artikel/${slug}`,
     },
   };
 }
 
-export default async function BeritaShow({ params }: { params: Promise<{ slug: string }> }) {
+export default async function ArtikelShow({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
 
   return <NewsDetailContent slug={slug} />;

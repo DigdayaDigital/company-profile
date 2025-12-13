@@ -93,7 +93,7 @@ export function NewsContent() {
     return (
       <div className="flex items-center justify-center min-h-[400px]">
         <div className="text-center">
-          <p className="text-xl text-gray-600 mb-4">Gagal memuat berita</p>
+          <p className="text-xl text-gray-600 mb-4">Gagal memuat artikel</p>
           <p className="text-gray-500">Silakan coba lagi nanti</p>
         </div>
       </div>
@@ -129,7 +129,7 @@ export function NewsContent() {
                 transition={{ duration: 0.6, delay: index * 0.2 }}
                 className="group"
               >
-                <Link href={`/berita/${news.slug}`}>
+                <Link href={`/artikel/${news.slug}`}>
                   <article className="bg-white rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 h-full flex flex-col relative">
                     <div className="absolute top-4 right-4 z-10 bg-linear-to-r from-[#ff5100] to-[#ff7733] text-white px-4 py-2 rounded-full text-sm font-semibold shadow-lg flex items-center gap-1">
                       <TrendingUp className="w-4 h-4" />
@@ -214,7 +214,7 @@ export function NewsContent() {
             transition={{ duration: 0.6, delay: index * 0.1 }}
             className="group"
           >
-            <Link href={`/berita/${news.slug}`}>
+            <Link href={`/artikel/${news.slug}`}>
               <article className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 h-full flex flex-col">
                 {/* Image */}
                 <div className="relative h-56 bg-linear-to-br from-orange-100 to-orange-50 overflow-hidden">

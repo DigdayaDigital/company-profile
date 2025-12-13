@@ -6,21 +6,21 @@ import type { Metadata } from 'next';
 import { NewsContent } from '@/components/client/NewsContent';
 
 export const metadata: Metadata = {
-  title: 'Berita & Artikel Teknologi | Digdaya Digital',
+  title: 'Artikel Teknologi | Digdaya Digital',
   description: 'Informasi terbaru seputar teknologi, inovasi digital, tips pengembangan bisnis, dan insight mendalam dari para ahli Digdaya Digital. Update terkini tentang AI, Cloud Computing, UI/UX Design, dan Web Development.',
   keywords: ['berita teknologi', 'artikel digital', 'inovasi digital', 'tips bisnis digital', 'transformasi digital', 'UI/UX design', 'cloud computing', 'web development', 'AI machine learning', 'mobile development'],
   authors: [{ name: 'Digdaya Digital' }],
   openGraph: {
-    title: 'Berita & Artikel Teknologi | Digdaya Digital',
+    title: 'Artikel Teknologi | Digdaya Digital',
     description: 'Informasi terbaru seputar teknologi, inovasi digital, dan tips pengembangan bisnis dari para ahli Digdaya Digital.',
-    url: 'https://www.digdayadigital.com/berita',
+    url: 'https://www.digdayadigital.com/artikel',
     siteName: 'Digdaya Digital',
     images: [
       {
         url: 'https://www.digdayadigital.com/images/og-berita.jpg',
         width: 1200,
         height: 630,
-        alt: 'Berita & Artikel Digdaya Digital',
+        alt: 'Artikel Digdaya Digital',
       },
     ],
     locale: 'id_ID',
@@ -28,16 +28,16 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Berita & Artikel Teknologi | Digdaya Digital',
+    title: 'Artikel Teknologi | Digdaya Digital',
     description: 'Informasi terbaru seputar teknologi, inovasi digital, dan tips pengembangan bisnis.',
     images: ['https://www.digdayadigital.com/images/og-berita.jpg'],
   },
   alternates: {
-    canonical: 'https://www.digdayadigital.com/berita',
+    canonical: 'https://www.digdayadigital.com/artikel',
   },
 };
 
-export default function Berita() {
+export default function Artikel() {
   return (
     <main className="relative min-h-screen overflow-hidden">
       {/* Background Shapes */}
@@ -80,7 +80,7 @@ export default function Berita() {
                 <span>Beranda</span>
               </Link>
               <ChevronRight className="w-4 h-4" />
-              <span className="text-gray-800 font-medium">Berita</span>
+              <span className="text-gray-800 font-medium">Artikel</span>
             </nav>
           </MotionDiv>
 
@@ -92,7 +92,7 @@ export default function Berita() {
             className="text-center mb-16"
           >
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-gray-800 mb-6">
-              Berita & Artikel
+              Artikel
             </h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Informasi terbaru seputar teknologi, inovasi digital, dan tips pengembangan bisnis dari para ahli Digdaya Digital.

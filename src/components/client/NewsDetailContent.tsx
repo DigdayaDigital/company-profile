@@ -131,8 +131,8 @@ export function NewsDetailContent({ slug }: NewsDetailContentProps) {
       <div className="flex items-center justify-center min-h-[400px]">
         <div className="text-center">
           <p className="text-xl text-gray-600 mb-4">Artikel tidak ditemukan</p>
-          <Link href="/berita" className="text-[#ff5100] hover:underline">
-            Kembali ke Berita
+          <Link href="/artikel" className="text-[#ff5100] hover:underline">
+            Kembali ke Artikel
           </Link>
         </div>
       </div>
@@ -178,8 +178,8 @@ export function NewsDetailContent({ slug }: NewsDetailContentProps) {
                 <span>Beranda</span>
               </Link>
               <ChevronRight className="w-4 h-4" />
-              <Link href="/berita" className="hover:text-[#ff5100] transition-colors">
-                Berita
+              <Link href="/artikel" className="hover:text-[#ff5100] transition-colors">
+                Artikel
               </Link>
               <ChevronRight className="w-4 h-4" />
               <span className="text-gray-800 font-medium line-clamp-1">{article.title}</span>
@@ -194,11 +194,11 @@ export function NewsDetailContent({ slug }: NewsDetailContentProps) {
             className="mb-8"
           >
             <Link
-              href="/berita"
+              href="/artikel"
               className="inline-flex items-center gap-2 text-gray-600 hover:text-[#ff5100] transition-colors group"
             >
               <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
-              <span>Kembali ke Berita</span>
+              <span>Kembali ke Artikel</span>
             </Link>
           </MotionDiv>
 
@@ -337,7 +337,7 @@ export function NewsDetailContent({ slug }: NewsDetailContentProps) {
               <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-8">Artikel Terkait</h2>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 {relatedArticles.map((news) => (
-                  <Link key={news.id} href={`/berita/${news.slug}`}>
+                  <Link key={news.id} href={`/artikel/${news.slug}`}>
                     <div className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 h-full">
                       <div className="relative h-48 bg-linear-to-br from-orange-100 to-orange-50">
                         {news.image_url ? (
