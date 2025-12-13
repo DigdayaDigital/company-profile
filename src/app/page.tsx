@@ -41,36 +41,36 @@ export default function Home() {
       "@type": "Country",
       "name": "Indonesia"
     },
-    "hasOfferCatalog": {
-      "@type": "OfferCatalog",
-      "name": "Digital Services",
-      "itemListElement": [
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Software Development",
-            "description": "Solusi perangkat lunak custom yang disesuaikan dengan kebutuhan bisnis"
-          }
-        },
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "UI/UX Design",
-            "description": "Desain antarmuka yang intuitif dan pengalaman pengguna yang memukau"
-          }
-        },
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Cloud Solutions",
-            "description": "Infrastruktur cloud yang scalable dan aman"
-          }
-        }
-      ]
-    }
+    // "hasOfferCatalog": {
+    //   "@type": "OfferCatalog",
+    //   "name": "Digital Services",
+    //   "itemListElement": [
+    //     {
+    //       "@type": "Offer",
+    //       "itemOffered": {
+    //         "@type": "Service",
+    //         "name": "Software Development",
+    //         "description": "Solusi perangkat lunak custom yang disesuaikan dengan kebutuhan bisnis"
+    //       }
+    //     },
+    //     {
+    //       "@type": "Offer",
+    //       "itemOffered": {
+    //         "@type": "Service",
+    //         "name": "UI/UX Design",
+    //         "description": "Desain antarmuka yang intuitif dan pengalaman pengguna yang memukau"
+    //       }
+    //     },
+    //     {
+    //       "@type": "Offer",
+    //       "itemOffered": {
+    //         "@type": "Service",
+    //         "name": "Cloud Solutions",
+    //         "description": "Infrastruktur cloud yang scalable dan aman"
+    //       }
+    //     }
+    //   ]
+    // }
   };
 
   return (

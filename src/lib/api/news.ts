@@ -21,7 +21,7 @@ export const newsApi = {
 
   // Get single news by slug (find by fetching all and filtering)
   getNewsBySlug: async (slug: string): Promise<NewsArticle | null> => {
-    const { data } = await axiosInstance.get<NewsResponse>('/news?per_page=100');
+    const { data } = await axiosInstance.get<NewsResponse>('/news?per_page=1');
     const article = data.data.find((news) => news.slug === slug);
     return article || null;
   },

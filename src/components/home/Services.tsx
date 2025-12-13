@@ -1,4 +1,4 @@
-import { Settings, Palette, Cloud } from 'lucide-react';
+import { Settings, Palette, Cloud, TrendingUp, BrainCircuit, Sparkles } from 'lucide-react';
 import { MotionDiv, MotionA } from '@/components/motion/MotionComponents';
 
 const services = [
@@ -7,24 +7,106 @@ const services = [
     title: 'Software Development',
     description: 'Solusi perangkat lunak custom yang disesuaikan dengan kebutuhan bisnis Anda untuk meningkatkan efisiensi dan produktivitas.',
     url: 'https://wa.me/6285712353595?text=Halo%2C%20saya%20tertarik%20dengan%20layanan%20Software%20Development%20Anda.',
+    keywords: ['software development', 'custom software', 'aplikasi bisnis', 'sistem informasi'],
+    category: 'SoftwareApplication',
   },
   {
     icon: Palette,
     title: 'UI/UX Design',
     description: 'Desain antarmuka yang intuitif dan pengalaman pengguna yang memukau untuk meningkatkan engagement dan konversi.',
     url: 'https://wa.me/6285712353595?text=Halo%2C%20saya%20tertarik%20dengan%20layanan%20UI/UX%20Design%20Anda.',
+    keywords: ['ui design', 'ux design', 'desain antarmuka', 'user experience'],
+    category: 'DesignService',
   },
   {
     icon: Cloud,
     title: 'Cloud Solutions',
     description: 'Infrastruktur cloud yang scalable dan aman untuk mendukung pertumbuhan bisnis Anda di era digital.',
     url: 'https://wa.me/6285712353595?text=Halo%2C%20saya%20tertarik%20dengan%20layanan%20Cloud%20Solutions%20Anda.',
+    keywords: ['cloud computing', 'cloud infrastructure', 'aws', 'azure', 'google cloud'],
+    category: 'ComputerService',
   },
+  {
+    icon: TrendingUp,
+    title: 'SEO Optimization',
+    description: 'Tingkatkan visibilitas online Anda dengan strategi SEO yang efektif dan hasil yang terukur.',
+    url: 'https://wa.me/6285712353595?text=Halo%2C%20saya%20tertarik%20dengan%20layanan%20SEO%20Optimization%20Anda.',
+    keywords: ['seo', 'search engine optimization', 'digital marketing', 'google ranking'],
+    category: 'MarketingService',
+  },
+  {
+    icon: BrainCircuit,
+    title: 'AI Automation',
+    description: 'Optimalkan proses bisnis Anda dengan solusi AI yang cerdas dan otomatisasi seperti N8N yang efisien.',
+    url: 'https://wa.me/6285712353595?text=Halo%2C%20saya%20tertarik%20dengan%20layanan%20AI%20Automation%20Anda.',
+    keywords: ['ai automation', 'artificial intelligence', 'business automation', 'n8n', 'workflow automation'],
+    category: 'AutomationService',
+  },
+  {
+    icon: Sparkles,
+    title: 'AI Integration',
+    description: 'Integrasikan teknologi AI terbaru ke dalam sistem Anda untuk meningkatkan kinerja dan inovasi bisnis.',
+    url: 'https://wa.me/6285712353595?text=Halo%2C%20saya%20tertarik%20dengan%20layanan%20AI%20Integration%20Anda.',
+    keywords: ['ai integration', 'machine learning', 'chatbot', 'ai solutions'],
+    category: 'TechnologyIntegration',
+  }
 ];
 
 export function Services() {
+  // Schema.org structured data for SEO
+  const servicesSchema = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Digdaya Digital",
+    "url": "https://www.digdayadigital.com",
+    "description": "Software house dan digital agency terpercaya di Cilacap yang menyediakan layanan pengembangan software, UI/UX design, cloud solutions, SEO optimization, dan AI automation.",
+    // "address": {
+    //   "@type": "PostalAddress",
+    //   "streetAddress": "Jl. Wijayakusuma",
+    //   "addressLocality": "Cilacap",
+    //   "addressRegion": "Jawa Tengah",
+    //   "addressCountry": "ID"
+    // },
+    // "contactPoint": {
+    //   "@type": "ContactPoint",
+    //   "telephone": "+62-857-1235-3595",
+    //   "contactType": "customer service",
+    //   "email": "info@digdayadigital.com",
+    //   "availableLanguage": ["Indonesian", "English"]
+    // },
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Layanan Digital",
+      "itemListElement": services.map((service, index) => ({
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": service.title,
+          "description": service.description,
+          "serviceType": service.category,
+          "provider": {
+            "@type": "Organization",
+            "name": "Digdaya Digital"
+          }
+        },
+        "position": index + 1
+      }))
+    }
+  };
+
   return (
-    <section id="layanan" className="py-24 px-6 relative overflow-hidden">
+    <section 
+      id="layanan" 
+      className="py-24 px-6 relative overflow-hidden"
+      itemScope 
+      itemType="https://schema.org/ItemList"
+    >
+      {/* JSON-LD Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(servicesSchema) }}
+      />
+
       <div className="container mx-auto">
         <MotionDiv
           initial={{ opacity: 0, y: 30 }}
