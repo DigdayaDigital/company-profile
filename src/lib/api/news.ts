@@ -8,6 +8,7 @@ export const newsApi = {
     featured?: boolean;
     search?: string;
     per_page?: number;
+    page?: number;
   }): Promise<NewsResponse> => {
     const { data } = await axiosInstance.get<NewsResponse>('/news', { params });
     return data;

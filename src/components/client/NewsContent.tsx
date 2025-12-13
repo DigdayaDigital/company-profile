@@ -1,16 +1,43 @@
 'use client';
 
 import { MotionDiv } from '@/components/motion/MotionComponents';
-import { Calendar, Clock, ArrowRight, TrendingUp } from 'lucide-react';
+import { Calendar, Clock, ArrowRight, TrendingUp, Loader2 } from 'lucide-react';
 import Link from 'next/link';
 import { formatDate } from '@/lib/dateUtils';
 import { useNews } from '@/hooks/useNews';
 import { Skeleton } from '@/components/ui/skeleton';
+import { useState, useEffect } from 'react';
+import type { NewsArticle } from '@/types/News';
 
 export function NewsContent() {
-  const { data, isLoading, isError } = useNews();
+  const [currentPage, setCurrentPage] = useState(1);
+  const [allArticles, setAllArticles] = useState<NewsArticle[]>([]);
+  const [isLoadingMore, setIsLoadingMore] = useState(false);
+  
+  const { data, isLoading, isError } = useNews({ page: currentPage, per_page: 9 });
 
-  if (isLoading) {
+  // Update articles when new data arrives
+  useEffect(() => {
+    if (data?.data) {
+      if (currentPage === 1) {
+        setAllArticles(data.data);
+      } else {
+        setAllArticles(prev => [...prev, ...data.data]);
+      }
+      setIsLoadingMore(false);
+    }
+  }, [data, currentPage]);
+
+  const handleLoadMore = () => {
+    if (data?.meta && currentPage < data.meta.last_page) {
+      setIsLoadingMore(true);
+      setCurrentPage(prev => prev + 1);
+    }
+  };
+
+  const hasMore = data?.meta && currentPage < data.meta.last_page;
+
+  if (isLoading && currentPage === 1) {
     return (
       <>
         {/* Featured News Skeleton */}
@@ -89,7 +116,8 @@ export function NewsContent() {
     );
   }
 
-  if (isError || !data) {
+  // Only show error state on first page load
+  if ((isError || !data) && currentPage === 1) {
     return (
       <div className="flex items-center justify-center min-h-[400px]">
         <div className="text-center">
@@ -100,8 +128,8 @@ export function NewsContent() {
     );
   }
 
-  const featuredNews = data.data.filter(news => news.featured);
-  const regularNews = data.data.filter(news => !news.featured);
+  const featuredNews = allArticles.filter(news => news.featured);
+  const regularNews = allArticles.filter(news => !news.featured);
 
   return (
     <>
@@ -268,7 +296,72 @@ export function NewsContent() {
             </Link>
           </MotionDiv>
         ))}
+
+        {/* Loading More Skeleton */}
+        {isLoadingMore && [1, 2, 3].map((item) => (
+          <div key={`skeleton-${item}`} className="bg-white rounded-2xl overflow-hidden shadow-lg">
+            {/* Image Skeleton */}
+            <Skeleton className="h-56 w-full" />
+            
+            {/* Content Skeleton */}
+            <div className="p-6 space-y-3">
+              <Skeleton className="h-6 w-24 rounded-full" />
+              <div className="space-y-2">
+                <Skeleton className="h-6 w-full" />
+                <Skeleton className="h-6 w-3/4" />
+              </div>
+              <div className="space-y-2">
+                <Skeleton className="h-4 w-full" />
+                <Skeleton className="h-4 w-full" />
+                <Skeleton className="h-4 w-2/3" />
+              </div>
+              <div className="flex items-center justify-between pt-4 border-t border-gray-100">
+                <div className="flex items-center gap-3">
+                  <Skeleton className="h-4 w-20" />
+                  <Skeleton className="h-4 w-16" />
+                </div>
+                <Skeleton className="w-5 h-5" />
+              </div>
+            </div>
+          </div>
+        ))}
       </div>
+
+      {/* Load More Button */}
+      {hasMore && (
+        <MotionDiv
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="flex justify-center mt-12"
+        >
+          <button
+            onClick={handleLoadMore}
+            disabled={isLoadingMore}
+            className="px-8 py-4 bg-linear-to-r from-[#ff5100] to-[#ff7733] text-white font-semibold rounded-full hover:shadow-xl hover:scale-105 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 flex items-center gap-2 text-lg"
+          >
+            {isLoadingMore ? (
+              <>
+                <Loader2 className="w-5 h-5 animate-spin" />
+                <span>Memuat...</span>
+              </>
+            ) : (
+              <>
+                <span>Muat Lebih Banyak</span>
+                <ArrowRight className="w-5 h-5" />
+              </>
+            )}
+          </button>
+        </MotionDiv>
+      )}
+
+      {/* Total Articles Info */}
+      {data?.meta && (
+        <div className="text-center mt-8 text-gray-500">
+          <p>Menampilkan {allArticles.length} dari {data.meta.total} artikel</p>
+        </div>
+      )}
     </>
   );
 }

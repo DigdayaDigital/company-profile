@@ -6,6 +6,7 @@ export const useNews = (params?: {
   featured?: boolean;
   search?: string;
   per_page?: number;
+  page?: number;
 }) => {
   return useQuery({
     queryKey: ['news', params],
