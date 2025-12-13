@@ -4,6 +4,7 @@ import "./globals.css";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { Toaster } from "@/components/ui/sonner";
+import { ReactQueryProvider } from "@/components/providers/ReactQueryProvider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -105,12 +106,14 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <div className="min-h-dvh bg-linear-to-br from-gray-50 via-white to-orange-50">
-          <Header />
-          {children}
-          <Footer />
-        </div>
-        <Toaster position="top-right" />
+        <ReactQueryProvider>
+          <div className="min-h-dvh bg-linear-to-br from-gray-50 via-white to-orange-50">
+            <Header />
+            {children}
+            <Footer />
+          </div>
+          <Toaster position="top-right" />
+        </ReactQueryProvider>
       </body>
     </html>
   );

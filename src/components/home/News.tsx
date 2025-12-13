@@ -1,10 +1,14 @@
+'use client';
+
 import { MotionDiv } from '@/components/motion/MotionComponents';
 import { Calendar, Clock, ArrowRight, Newspaper } from 'lucide-react';
 import Link from 'next/link';
-import { newsData } from '@/lib/newsData';
+import { useNews } from '@/hooks/useNews';
+import { formatDate } from '@/lib/dateUtils';
+import { Skeleton } from '@/components/ui/skeleton';
 
 export function News() {
-  const featuredArticles = newsData.filter(article => article.featured).slice(0, 3);
+  const { data, isLoading, isError } = useNews({ featured: true, per_page: 3 });
 
   return (
     <section className="py-24 px-6 bg-linear-to-br from-gray-50 to-white relative overflow-hidden">
@@ -25,8 +29,47 @@ export function News() {
           </p>
         </MotionDiv>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-          {featuredArticles.map((article, index) => (
+        {isLoading ? (
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+            {[1, 2, 3].map((item) => (
+              <div key={item} className="bg-white rounded-2xl overflow-hidden shadow-lg">
+                {/* Image Skeleton */}
+                <Skeleton className="h-56 w-full" />
+                
+                {/* Content Skeleton */}
+                <div className="p-6 space-y-3">
+                  <Skeleton className="h-6 w-24 rounded-full" />
+                  <div className="space-y-2">
+                    <Skeleton className="h-6 w-full" />
+                    <Skeleton className="h-6 w-3/4" />
+                  </div>
+                  <div className="space-y-2">
+                    <Skeleton className="h-4 w-full" />
+                    <Skeleton className="h-4 w-full" />
+                    <Skeleton className="h-4 w-2/3" />
+                  </div>
+                  <div className="flex items-center justify-between pt-4 border-t border-gray-100">
+                    <div className="flex items-center gap-3">
+                      <Skeleton className="h-4 w-20" />
+                      <Skeleton className="h-4 w-16" />
+                    </div>
+                    <Skeleton className="w-5 h-5" />
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        ) : isError || !data ? (
+          <div className="flex items-center justify-center min-h-[400px]">
+            <div className="text-center">
+              <p className="text-xl text-gray-600 mb-4">Gagal memuat berita</p>
+              <p className="text-gray-500">Silakan coba lagi nanti</p>
+            </div>
+          </div>
+        ) : (
+          <>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+              {data.data.map((article, index) => (
             <MotionDiv
               key={article.id}
               initial={{ opacity: 0, y: 50 }}
@@ -40,9 +83,17 @@ export function News() {
                   {/* Image */}
                   <div className="relative h-56 bg-linear-to-br from-orange-100 to-orange-50 overflow-hidden">
                     <div className="absolute inset-0 bg-linear-to-br from-[#ff5100]/20 to-[#ff7733]/10 group-hover:from-[#ff5100]/30 group-hover:to-[#ff7733]/20 transition-all duration-300" />
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="text-gray-400 text-6xl">📰</div>
-                    </div>
+                    {article.image_url ? (
+                      <img 
+                        src={article.image_url} 
+                        alt={article.title}
+                        className="w-full h-full object-cover"
+                      />
+                    ) : (
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <div className="text-gray-400 text-6xl">📰</div>
+                      </div>
+                    )}
                   </div>
 
                   {/* Content */}
@@ -67,11 +118,11 @@ export function News() {
                       <div className="flex items-center gap-3">
                         <div className="flex items-center gap-1">
                           <Calendar className="w-4 h-4" />
-                          <span>{article.date}</span>
+                          <span>{formatDate(article.date)}</span>
                         </div>
                         <div className="flex items-center gap-1">
                           <Clock className="w-4 h-4" />
-                          <span>{article.readTime}</span>
+                          <span>{article.read_time} menit</span>
                         </div>
                       </div>
                       <ArrowRight className="w-5 h-5 text-[#ff5100] group-hover:translate-x-1 transition-transform duration-300" />
@@ -99,6 +150,8 @@ export function News() {
             <ArrowRight className="w-5 h-5" />
           </Link>
         </MotionDiv>
+          </>
+        )}
       </div>
     </section>
   );
