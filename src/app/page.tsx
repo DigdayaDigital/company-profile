@@ -1,11 +1,28 @@
-import { Clients } from "@/components/home/Clients";
-import { Contact } from "@/components/home/Contact";
-import { FrequentlyAskedQuestions } from "@/components/home/FrequentlyAskedQuestions";
 import { Hero } from "@/components/home/Hero";
-import { Portfolio } from "@/components/home/Portfolio";
 import { Services } from "@/components/home/Services";
-import { Testimonials } from "@/components/home/Testimonials";
-import { News } from "@/components/home/News";
+import dynamic from 'next/dynamic';
+import { SectionLoader } from '@/components/ui/section-loader';
+
+// Lazy load komponen yang tidak terlihat di initial viewport
+const Portfolio = dynamic(() => import('@/components/home/Portfolio').then(mod => ({ default: mod.Portfolio })), {
+  loading: () => <SectionLoader />,
+});
+
+const Testimonials = dynamic(() => import('@/components/home/Testimonials').then(mod => ({ default: mod.Testimonials })), {
+  loading: () => <SectionLoader />,
+});
+
+const News = dynamic(() => import('@/components/home/News').then(mod => ({ default: mod.News })), {
+  loading: () => <SectionLoader />,
+});
+
+const FrequentlyAskedQuestions = dynamic(() => import('@/components/home/FrequentlyAskedQuestions').then(mod => ({ default: mod.FrequentlyAskedQuestions })), {
+  loading: () => <SectionLoader />,
+});
+
+const Contact = dynamic(() => import('@/components/home/Contact').then(mod => ({ default: mod.Contact })), {
+  loading: () => <SectionLoader />,
+});
 
 export default function Home() {
   const jsonLd = {
@@ -41,36 +58,6 @@ export default function Home() {
       "@type": "Country",
       "name": "Indonesia"
     },
-    // "hasOfferCatalog": {
-    //   "@type": "OfferCatalog",
-    //   "name": "Digital Services",
-    //   "itemListElement": [
-    //     {
-    //       "@type": "Offer",
-    //       "itemOffered": {
-    //         "@type": "Service",
-    //         "name": "Software Development",
-    //         "description": "Solusi perangkat lunak custom yang disesuaikan dengan kebutuhan bisnis"
-    //       }
-    //     },
-    //     {
-    //       "@type": "Offer",
-    //       "itemOffered": {
-    //         "@type": "Service",
-    //         "name": "UI/UX Design",
-    //         "description": "Desain antarmuka yang intuitif dan pengalaman pengguna yang memukau"
-    //       }
-    //     },
-    //     {
-    //       "@type": "Offer",
-    //       "itemOffered": {
-    //         "@type": "Service",
-    //         "name": "Cloud Solutions",
-    //         "description": "Infrastruktur cloud yang scalable dan aman"
-    //       }
-    //     }
-    //   ]
-    // }
   };
 
   return (

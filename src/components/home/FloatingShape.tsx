@@ -1,4 +1,7 @@
+'use client';
+
 import { MotionDiv } from '@/components/motion/MotionComponents';
+import { useReducedMotion } from '@/hooks/useReducedMotion';
 
 interface FloatingShapeProps {
   color: string;
@@ -9,6 +12,20 @@ interface FloatingShapeProps {
 }
 
 export function FloatingShape({ color, size, position, delay, duration }: FloatingShapeProps) {
+  const prefersReducedMotion = useReducedMotion();
+  
+  if (prefersReducedMotion) {
+    return (
+      <div
+        className={`absolute ${position} ${size} bg-linear-to-br ${color} rounded-[60px] blur-2xl opacity-60`}
+        style={{
+          boxShadow: '0 30px 60px rgba(255, 81, 0, 0.3)',
+          transform: 'translateZ(0)',
+        }}
+      />
+    );
+  }
+
   return (
     <MotionDiv
       className={`absolute ${position} ${size} bg-linear-to-br ${color} rounded-[60px] blur-2xl opacity-60`}

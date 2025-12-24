@@ -1,6 +1,18 @@
+'use client';
+
 import { FloatingShape } from './FloatingShape';
-import Spline from '@splinetool/react-spline';
 import { MotionDiv, MotionButton } from '@/components/motion/MotionComponents';
+import dynamic from 'next/dynamic';
+import { Suspense } from 'react';
+
+const Spline = dynamic(() => import('@splinetool/react-spline'), {
+  ssr: false,
+  loading: () => (
+    <div className="absolute lg:top-[-20%] bottom-0 lg:left-[20%] sm:left-[-2%] w-full h-full flex items-center justify-center">
+      <div className="w-16 h-16 border-4 border-[#ff5100] border-t-transparent rounded-full animate-spin" />
+    </div>
+  ),
+});
 
 export function Hero() {
 
@@ -78,10 +90,16 @@ export function Hero() {
             </MotionButton>
           </div>
           <div className='relative w-full lg:w-1/2 h-[400px] lg:h-[600px]'>
-            <Spline
-              className='absolute lg:top-[-20%] bottom-0 lg:left-[20%] sm:left-[-2%]'
-              scene="https://prod.spline.design/Mk-BQ4DmGKTu9soM/scene.splinecode" 
-            />
+            <Suspense fallback={
+              <div className="absolute lg:top-[-20%] bottom-0 lg:left-[20%] sm:left-[-2%] w-full h-full flex items-center justify-center">
+                <div className="w-16 h-16 border-4 border-[#ff5100] border-t-transparent rounded-full animate-spin" />
+              </div>
+            }>
+              <Spline
+                className='absolute lg:top-[-20%] bottom-0 lg:left-[20%] sm:left-[-2%]'
+                scene="https://prod.spline.design/Mk-BQ4DmGKTu9soM/scene.splinecode" 
+              />
+            </Suspense>
           </div>
         </div>
       </div>
