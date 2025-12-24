@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { AnimatePresence } from 'motion/react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { ImageWithFallback } from '@/components/figma/ImageWithFallback';
@@ -41,7 +41,19 @@ const projects = [
 
 export function PortfolioCarousel() {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const itemsPerView = 3;
+  const [itemsPerView, setItemsPerView] = useState(3);
+
+  // Update itemsPerView based on screen size
+  useEffect(() => {
+    const updateItemsPerView = () => {
+      setItemsPerView(window.innerWidth < 768 ? 1 : 3);
+    };
+
+    updateItemsPerView();
+    window.addEventListener('resize', updateItemsPerView);
+
+    return () => window.removeEventListener('resize', updateItemsPerView);
+  }, []);
 
   const nextSlide = () => {
     setCurrentIndex((prev) => 
