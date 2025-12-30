@@ -113,7 +113,13 @@ export function Footer() {
                   <span className="text-white/80">info@digdayadigital.com</span>
                 </li>
               </ul>
+              <div className="mt-4">
+                  <a href="/privacy-policy" className="text-white/80 hover:text-white transition-colors">Privacy Policy</a>
+                  <span className="mx-2">•</span>
+                  <a href="/terms-of-service" className="text-white/80 hover:text-white transition-colors">Terms of Service</a>
+              </div>
             </MotionDiv>
+
           </div>
 
           {/* Bottom Bar */}

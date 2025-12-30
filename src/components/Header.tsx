@@ -45,7 +45,7 @@ export function Header() {
         <NavbarLogo />
         <NavItems items={navItems} />
         <div className="flex items-center gap-4">
-          {/* <NavbarButton variant="secondary">Login</NavbarButton> */}
+          <NavbarButton href='https://app.digdayadigital.com' variant="secondary">Login App</NavbarButton>
           <NavbarButton variant="primary" href='#kontak' >Hubungi Kami</NavbarButton>
         </div>
       </NavBody>
