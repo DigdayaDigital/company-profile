@@ -15,10 +15,10 @@ import {
 
 export function Header() {
   const navItems = [
-    {
-      name: "Tentang Kami",
-      link: "/#tentang-kami",
-    },
+    // {
+    //   name: "Tentang Kami",
+    //   link: "/#tentang-kami",
+    // },
     {
       name: "Layanan",
       link: "/#layanan",
